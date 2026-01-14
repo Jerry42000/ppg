@@ -121,8 +121,8 @@ def run_ppg_pipeline(video_path: str):
 
     lf_band = (f >= 0.04) & (f <  0.15)
     hf_band = (f >= 0.15) & (f <= 0.40)
-    lf_power = np.trapzoid(Pxx[lf_band], f[lf_band])
-    hf_power = np.trapzoid(Pxx[hf_band], f[hf_band])
+    lf_power = np.trapezoid(Pxx[lf_band], f[lf_band])
+    hf_power = np.trapezoid(Pxx[hf_band], f[hf_band])
 
 
     metrics['lf_hf'] = float(lf_power / hf_power) if hf_power > 0 else np.nan
@@ -236,3 +236,4 @@ if __name__ == '__main__':
     plt.close('all')
 
     sys.exit(0)
+
